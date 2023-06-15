@@ -1,0 +1,143 @@
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.navbar {
+  background-color: rgb(245, 244, 244);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
+}
+.footer-padding {
+  padding-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+ 
+}
+.footer p {
+  margin-top: 5px;
+  font-size: 30px;
+  color: #fff;
+}
+
+
+html {
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(65deg, #2b54da 50%, #e4e9fd 50%);
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
+
+h1 {
+  color: #000000;
+  padding: 10px;
+  margin-left: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-left: 0.6rem;
+  padding:10px;
+}
+h6 {
+  margin-top: 2rem;
+  margin-left: 0.6rem;
+}
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#heading {
+  background-color: #2b54da;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked + p {
+  text-decoration: line-through;
+  text-decoration-color: #2b54da;
+}
+
+input[type="checkbox"]/* , textarea[type="text"] */ {
+  margin: 20px;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+  word-break:break-all;
+  width:auto;
+}
+
+form {
+  margin-left: 20px;
+}
+
+button {
+  min-height: 50px;
+  width: 100px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #2b54da;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+  margin-top: 1rem;
+}
+
+input[type="text"], textarea[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 90%;
+}
+
+input[type="text"]:focus, textarea[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -1px 0 0 #000000;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
