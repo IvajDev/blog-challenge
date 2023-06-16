@@ -2,22 +2,22 @@
 <h1>Home</h1>
     <p><%= ipsumHome %></p>
 
-<% homeObjArr.forEach(function(myTitle) { %>
-    <% let hrefTitle = "/post/" + myTitle.titleComp; %>
-    <% let shortTitle = myTitle.titleComp.substring(0, 20); %>
-    <% let shortPost = myTitle.postComp.substring(0, 60); %>
+<% homeObjArr.forEach( (doc) => { %>
+    <% let hrefTitle = "/post/" + doc._id; %>
+    <% let shortTitle = doc.title.substring(0, 20); %>
+    <% let shortPost = doc.body.substring(0, 60); %>
     
     <%if (shortPost.length >= 60 && shortTitle.length >= 20) { %>
-        <h3><a href= "/post/<%= myTitle.titleComp %>"><%= shortTitle + " ..." %></a></h3>
-        <p><%= shortPost + " ..." %><a href= "/post/<%= myTitle.titleComp %>">Read More</a></p>
+        <h3><a href= "/post/<%= doc._id %>"><%= shortTitle + " ..." %></a></h3>
+        <p><%= shortPost + " ..." %><a href= "/post/<%= doc._id %>">Read More</a></p>
     <%} else if (shortPost.length >= 60) { %>
-        <h3><a href= "/post/<%= myTitle.titleComp %>"><%= shortTitle %></a></h3>
-        <p><%= shortPost + " ..." %><a href= "/post/<%= myTitle.titleComp %>">Read More</a></p>
+        <h3><a href= "/post/<%= doc._id %>"><%= shortTitle %></a></h3>
+        <p><%= shortPost + " ..." %><a href= "/post/<%= doc._id %>">Read More</a></p>
     <%} else if (shortTitle.length >= 20) { %>
-        <h3><a href= "/post/<%= myTitle.titleComp %>"><%= shortTitle + " ..." %></a></h3>
+        <h3><a href= "/post/<%= doc._id %>"><%= shortTitle + " ..." %></a></h3>
         <p><%= shortPost %></p>
     <%} else { %>
-        <h3><a href= "/post/<%= myTitle.titleComp %>"><%= shortTitle %></a></h3>
+        <h3><a href= "/post/<%= doc._id %>"><%= shortTitle %></a></h3>
         <p><%= shortPost %></p>
    <% } %>
         

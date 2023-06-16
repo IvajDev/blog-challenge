@@ -1,4 +1,4 @@
-import express from "express";
+import express, { request } from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
@@ -32,7 +32,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
-  res.render("home", { ipsumHome: homeStartingContent, homeObjArr: gloObjArr });
+  
+  Entrance.find({})
+    .then((documentsFounded) => {
+      /* console.log(documentsFounded); */
+      res.render("home", { ipsumHome: homeStartingContent, homeObjArr: documentsFounded });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 });
 
 app.get("/contact", (req, res) => {
@@ -47,23 +56,22 @@ app.get("/compose", (req, res) => {
 res.render("compose");
 });
 
-app.get("/post/:postName", (req,res) => {
+app.get("/post/:_id", (req,res) => {
 
-  const requestedPost = _.lowerCase(req.params.postName);
-  
-    gloObjArr.forEach(function(searchTitle) {
-      const storedPost = _.lowerCase(searchTitle.titleComp);
-      if (requestedPost === storedPost) {
-        
-        res.render("post", {
-          title: searchTitle.titleComp,
-          content: searchTitle.postComp
-      });
-      /* console.log(req.params.postName + " --> Match Found!"); */
-      } /* else {
-        console.log("No Match found.")
-      } */}); 
-  
+const requestedPost = req.params._id;
+
+      Entrance.findOne({_id: requestedPost})
+        .then((searchTitle) => {
+            /* console.log(requestedPost); */
+            res.render("post", {
+                title: searchTitle.title,
+                body: searchTitle.body,
+              });
+            
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 });
 
 app.post("/compose", (req, res)=>{
@@ -73,7 +81,7 @@ app.post("/compose", (req, res)=>{
     postComp: req.body.postComp,
   };
 
-  gloObjArr.push(postObj);
+  const addPost = Entrance.create({title: `${postObj.titleComp}`, body: `${postObj.postComp}`});
 
   res.redirect("/");
 });
